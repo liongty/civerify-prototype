@@ -143,7 +143,7 @@ if st.button("Verify Content"):
             st.write("Content verified as factual by the system.")
     else:
         st.warning("⚠️ **AMBIGUOUS / PENDING VERIFICATION**")
-        st.write(f"Confidence ({confidence_percent:.1f}%) is below the 90% threshold.")
+        st.write(f"Confidence ({confidence_percent:.1f}%) is below the {THRESHOLD*100:.0f}% threshold.")
         st.write("Routed to the **Human Collective Review Queue**.")
 
         # ----- Active Learning Simulation -----
@@ -183,4 +183,5 @@ st.caption(
     f"Knowledge Base Size: {len(st.session_state.df)} verified claims | "
     "Active Learning Enabled | Confidence scores are probabilistic estimates"
 )
+
 
