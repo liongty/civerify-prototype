@@ -30,7 +30,6 @@ def get_initial_data():
 
     return pd.DataFrame(data, columns=["text", "category", "label"])
 
-
 if "df" not in st.session_state:
     st.session_state.df = get_initial_data()
 
@@ -41,7 +40,6 @@ def preprocess_text(text: str) -> str:
     text = text.lower()
     text = re.sub(r"[^\w\s]", "", text)
     return text
-
 
 def prepare_features(df: pd.DataFrame) -> pd.Series:
     """
@@ -66,7 +64,7 @@ def train_model(df: pd.DataFrame):
     model.fit(X, y)
     return model
 
-
+# Train initial model
 model = train_model(st.session_state.df)
 
 # ==========================================
@@ -102,6 +100,7 @@ if st.button("Verify Content"):
         st.stop()
 
     # ----- Stage 2: Preprocessing -----
+    # Match the training logic: Category + Text
     combined_input = f"{category} {user_input}"
     clean_input = preprocess_text(combined_input)
 
