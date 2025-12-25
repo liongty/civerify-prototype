@@ -112,7 +112,7 @@ if st.button("Verify Content"):
     confidence_percent = confidence_score * 100
 
     # ----- Stage 4: Decision Routing -----
-    THRESHOLD = 0.65
+    THRESHOLD = 0.90
 
     st.divider()
     st.subheader("2. Triage Results")
@@ -183,5 +183,6 @@ st.caption(
     f"Knowledge Base Size: {len(st.session_state.df)} verified claims | "
     "Active Learning Enabled | Confidence scores are probabilistic estimates"
 )
+
 
 
